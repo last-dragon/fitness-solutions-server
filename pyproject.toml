@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "fitness-solutions-server"
+version = "0.1.0"
+description = ""
+authors = ["Mads Odgaard <mads@madsodgaard.com>"]
+readme = "README.md"
+packages = [{include = "fitness_solutions_server"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = {extras = ["dotenv"], version = "^1.10.7"}
+jinja2 = "^3.1.2"
+fastapi-mail = "^1.2.7"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.9"}
+alembic = "^1.10.3"
+psycopg = {extras = ["binary"], version = "^3.1.8"}
+fastapi = "^0.95.0"
+uvicorn = {extras = ["standard"], version = "^0.21.1"}
+python-multipart = "^0.0.6"
+aiofiles = "^23.1.0"
+sqlalchemy-easy-softdelete = "^0.8.3"
+fastapi-pagination = {extras = ["sqlalchemy"], version = "^0.12.4"}
+sqlalchemy-utils = "^0.41.1"
+babel = "^2.12.1"
+starlette-context = "^0.3.6"
+google-cloud-storage = "^2.10.0"
+
+
+
+flake8 = "^6.0.0"
+mypy = "^1.2.0"
+black = "^23.3.0"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

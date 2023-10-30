@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Activate admin account</title>
+</head>
+<body>
+    <p id="result"></p>
+    <form id="form">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="confirm_password" placeholder="Confirm Password">
+        <input type="hidden" name="activation_token" value="{{token}}">
+
+        <button type="submit">Activate</button>
+    </form>
+
+    <script>
+        const form = document.querySelector("#form");
+        const result = document.querySelector("#result");
+
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            fetch("{{url}}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(res => {
+                if (res.status == 204) {
+                    result.innerHTML = "Account activated succesfully!";
+                } else {
+                    res.json().then(json => {
+                        result.innerHTML = "An error occured: " + json.message;
+                    });
+                }
+            })
+        });
+    </script>
+</body>
+</html>

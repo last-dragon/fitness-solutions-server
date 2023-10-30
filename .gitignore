@@ -1,0 +1,14 @@
+.idea
+.ipynb_checkpoints
+.mypy_cache
+__pycache__
+.pytest_cache
+site
+.coverage
+coverage.xml
+Pipfile.lock
+env
+docs_build
+venv
+.env*
+!.env.example

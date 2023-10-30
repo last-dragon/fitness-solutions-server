@@ -1,0 +1,17 @@
+version: '3.7'
+
+volumes:
+  db_data:
+  
+services:
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data/pgdata
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fitness_solutions_server
+    ports:
+      - '5432:5432'
